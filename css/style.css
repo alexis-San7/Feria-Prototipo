@@ -23,6 +23,24 @@ header{
     padding: 0 100px;
     padding-top: 2px;
 }
+      /* Estilos para la barra de navegación */
+      .header-area {
+        background-color: #FFFFFF; /* Color de fondo */
+    }
+
+    /* Estilos para el texto del logo */
+    .logo {
+        color: #F96969; /* Cambiado a #F96969 */
+    }
+
+    .logo img {
+      width: 250px; /* Ajusta el ancho según tus necesidades */
+      height: auto; /* Para mantener la proporción de la imagen */
+    }
+
+    .registrou {
+        color: #F96969;
+    }
 header .logo a{
     font-size: 30px;
     font-weight: bold;
