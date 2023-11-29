@@ -76,7 +76,7 @@ if (isset($_GET['action'])) {
                 break;            
             
         case 'readOne': //Método para tomar los datos de cada registro y mostrarlos al momento de actualizar y el id para eliminar
-            if ($cliente->setId($_POST['Id_cliente'])) {
+            if ($cliente->setId($_POST['id_usuario'])) {
                 if ($result['dataset'] = $cliente->readOne()) {
                     $result['status'] = 1;
                 } else {
@@ -92,50 +92,35 @@ if (isset($_GET['action'])) {
             break;
         case 'update': //Método para actualizar un registro
             $_POST = $cliente->validateForm($_POST);
-            if ($cliente->setId($_POST['Id_cliente'])) {
+            if ($cliente->setId($_POST['id_usuario'])) {
                 if ($cliente->readOne()) {
                     if ($cliente->setNombre($_POST['nombre'])) {
-                        if ($cliente->setCorreo($_POST['correo'])) {
-                            if ($cliente->setClave($_POST['clave'])) {
-                                if ($cliente->setTelefono($_POST['telefono'])) {
-                                    if ($cliente->setDireccion($_POST['direccion'])) {
-                                        if ($cliente->setFlog($_POST['fecha_login'])) {
-                                            if ($cliente->setNacimiento($_POST['fecha_nacimiento'])) {
-                                                if ($cliente->setUsuario($_POST['usuario'])) {
-                                                    if ($cliente->setDui($_POST['dui'])) {
-                                                        if ($cliente->setEstado(isset($_POST['estado']) ? 1 : 0)) {
-                                                            if ($cliente->updateRow()) {
-                                                                $result['status'] = 1;
-                                                                $result['message'] = 'Cliente modificado correctamente';
-                                                            } else {
-                                                                $result['exception'] = Database::getException();
-                                                            }
-                                                        } else {
-                                                            $result['exception'] = 'Estado incorrecto';
-                                                        }
-                                                    } else {
-                                                        $result['exception'] = 'Dui incorrecto';
-                                                    }
-                                                } else {
-                                                    $result['exception'] = 'Usuario incorrecto';
-                                                }
+                        if ($cliente->setApellido($_POST['apellido'])) {
+                            if ($cliente->setUsuario($_POST['nombreusuario'])) {
+                                if ($cliente->setCorreo($_POST['correo'])) {
+                                    if ($cliente->setTelefono($_POST['telefono'])) {
+                                        if ($cliente->setFlog($_POST['fecha_login'])) {                                                    
+                                            if ($cliente->updateRow()) {
+                                                $result['status'] = 1;
+                                                $result['message'] = 'Cliente modificado correctamente';
                                             } else {
-                                                $result['exception'] = 'Fecha de nacimiento incorrecta';
+                                                $result['exception'] = Database::getException();
+                                            }
                                             }
                                         } else {
                                             $result['exception'] = 'Fecha de login incorrecta';
                                         }
                                     } else {
-                                        $result['exception'] = 'Dirección incorrecta';
+                                        $result['exception'] = 'Teléfono incorrecto';
                                     }
                                 } else {
-                                    $result['exception'] = 'Teléfono incorrecto';
+                                    $result['exception'] = 'Correo incorrecto';
                                 }
                             } else {
-                                $result['exception'] = 'Clave diferentes';
+                                $result['exception'] = 'Usuario incorrecto';
                             }
                         } else {
-                            $result['exception'] = 'Correo incorrecto';
+                            $result['exception'] = 'Apellido incorrecto';
                         }
                     } else {
                         $result['exception'] = 'Nombre incorrecto';
@@ -147,21 +132,22 @@ if (isset($_GET['action'])) {
                 $result['exception'] = 'Cliente incorrecto';
             }
             break;
+
         case 'delete': // METODO PARA ELIMINAR UN REGISTRO 
             $_POST = $cliente->validateForm($_POST);
-            if ($cliente->setId($_POST['Id_cliente'])) {
+            if ($cliente->setId($_POST['id_usuario'])) {
                 if ($data = $cliente->readOne()) {
                     if ($cliente->deleteRow()) {
                         $result['status'] = 1;
-                        $result['message'] = 'Cliente eliminado correctamente';
+                        $result['message'] = 'Usuario eliminado correctamente';
                     } else {
                         $result['exception'] = Database::getException();
                     }
                 } else {
-                    $result['exception'] = 'Cliente inexistente';
+                    $result['exception'] = 'Usuario inexistente';
                 }
             } else {
-                $result['exception'] = 'Cliente incorrecto';
+                $result['exception'] = 'Usuario incorrecto';
             }
             break;
         default: // SI LA ACCION NO COINCIDE CON NINGUNO DE LOS CASOS MUESTRA ESTE MENSAJE
