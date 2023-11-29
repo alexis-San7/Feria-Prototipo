@@ -38,6 +38,11 @@ header{
       height: auto; /* Para mantener la proporción de la imagen */
     }
 
+    .main-dark-button {
+        background-color: #282956;
+        color: #ffffff;
+    }
+
     .registrou {
         color: #F96969;
     }
@@ -46,10 +51,7 @@ header .logo a{
     font-weight: bold;
     color: black;
 }
-#form-submit {
-    background-color: #282956;
-    color: #ffffff;
-}
+
 .hamburger{
     display: none;
     cursor: pointer;
