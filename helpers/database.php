@@ -15,7 +15,7 @@ class Database
     {
         // Credenciales para establecer la conexión con la base de datos.
         $server = 'localhost';
-        $database = 'FeriaProttipo'; 
+        $database = 'FeriaProtipo'; 
         $username = 'postgres';
         $password = '123';
 
