@@ -1,10 +1,11 @@
 <?php
-$databaseHost = 'localhost';
-$databaseName = 'prototipos';
-$databaseUsername = 'root';
-$databasePassword = '';
+$servername = "localhost"; // Cambia esto si tu servidor de base de datos está en otro lugar
+$username = "root";
+$password = "";
+$database = "prototipos";
 $port = '3307';
 
-// Open a new connection to the MySQL server
-$conn = new mysqli($databaseHost, $databaseUsername, $databasePassword, $databaseName, $port); 
+// Crear conexión
+$conn = new mysqli($servername, $username, $password, $database, $port);
+
 
