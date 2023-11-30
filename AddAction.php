@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 	
 	
 	// Insertar datos en la base de datos
-	$sql = "INSERT INTO usuario (`nombre`, `apellido`, `nombreusuario`, `correo`, `telefono` `contraseña`) VALUES ('$nombre', '$apellido', '$nombreusuario', '$correo', '$telefono' , '$contraseña')";
+	$sql = "INSERT INTO usuario (`nombre`, `apellido`, `nombreusuario`, `correo`, `telefono`, `contraseña`) VALUES ('$nombre', '$apellido', '$nombreusuario', '$correo', '$telefono' , '$contraseña')";
 	
 	if ($conn->query($sql) === TRUE) {
 		echo "Datos insertados correctamente";
