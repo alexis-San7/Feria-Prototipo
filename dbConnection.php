@@ -1,6 +1,6 @@
 <?php
 $databaseHost = 'localhost';
-$databaseName = 'prototiposprueba';
+$databaseName = 'prototipos';
 $databaseUsername = 'root';
 $databasePassword = '';
 $port = '3307';
