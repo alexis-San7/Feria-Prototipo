@@ -2,7 +2,7 @@
 $servername = "localhost"; 
 $username = "root";
 $password = "";
-$database = "mibd";
+$database = "prototipos";
 $port = "3307";
 
 
