@@ -6,10 +6,11 @@ class Trabajador extends Validator
     // Declaración de atributos de la tabla proveedor (propiedades).
 
     private $id = null;
-    private $nombres = null;
-    private $dui = null;
+    private $nombre = null;
+    private $apellido = null;
+    private $nombreusuario = null
     private $correo = null;
-    private $clave = null;
+    private $telefono = null;
     private $nacimiento = null;
     private $telefono = null;
     private $salario = null;
@@ -33,7 +34,7 @@ class Trabajador extends Validator
         }
     }
 
-    public function setNombres($value)
+    public function setNombre($value)
     {
         if ($this->validateAlphabetic($value, 1, 200)) {
             $this->nombres = $value;
@@ -43,15 +44,7 @@ class Trabajador extends Validator
         }
     }
 
-    public function setDui($value)
-    {
-        if ($this->validateDUI($value)) {
-            $this->dui = $value;
-            return true;
-        } else {
-            return false;
-        }
-    }
+   
 
     public function setCorreo($value)
     {
@@ -227,12 +220,13 @@ class Trabajador extends Validator
     */
     public function searchRows($value)
     {
-        $sql = 'SELECT "Id_trabajador", nombres, dui, correo, clave, fecha_nacimiento, telefono, salario, direccion, "Id_tipo_trabajador", apellidos, nomusuario, estado
+        $sql =  'SELECT "Id_trabajador", nombres, dui, correo, clave, fecha_nacimiento, telefono, salario, direccion, "Id_tipo_trabajador", apellidos, nomusuario, estado
                 FROM "Trabajador" INNER JOIN "Tipo_trabajador" USING("Id_tipo_trabajador")
                 WHERE nombres ILIKE ? OR apellidos ILIKE ? OR correo ILIKE ?
                 ORDER BY apellidos';
         $params = array("%$value%", "%$value%", "%$value%");
         return Database::getRows($sql, $params);
+
     }
 
     public function createRow()
