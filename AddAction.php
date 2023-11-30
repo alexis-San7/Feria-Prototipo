@@ -8,7 +8,7 @@
 // Include the database connection file
 require_once("dbConnection.php");
 
-if (isset($_POST['form-submit'])) {
+if (isset($_POST['submit'])) {
 	// Escape special characters in string for use in SQL statement	
 	$nombre = mysqli_real_escape_string($mysqli, $_POST['nombre']);
 	$apellido = mysqli_real_escape_string($mysqli, $_POST['apellido']);
